@@ -133,16 +133,20 @@ for (let i = 0; i < icons.length; i++) {
     
     	const iconName = box.name
     	const iconPrefix = box.prefix
-    	console.log(iconName)
+    	const iconColor = box.color
+        console.log(iconColor);
 	
 	const boxMarkup = `
 		<div class="col">
       			<div class="card">
-        			<i class="${iconPrefix}solid ${iconPrefix}${iconName} my-1 m-auto"></i>
+        			<i id="tagIcon" class="${iconPrefix}solid ${iconPrefix}${iconName} my-1 m-auto" style="color: ${iconColor}"></i>
         			<div class="card-body">
-          				<h6 class="card-title text-center">${iconName}</h6>          			</div>
+          				<h6 class="card-title text-center">${iconName}</h6>
+                    </div>          			
       			</div>
-    		</div> 
+    	</div> 
 `
+
 boxRowElement.insertAdjacentHTML("beforeend", boxMarkup)
+//document.getElementById("tagIcon").style.color = (iconColor)
 }
