@@ -144,13 +144,14 @@ iconsType.forEach((typology) => {
 })
 
 selIcons.addEventListener("change", function() {
-   console.log(selIcons.value);
+  console.log(selIcons.value);
+   if (selIcons.value === iconsType[0]) {
+   alert("Animale!");} else {
+    if (selIcons.value === iconsType[1]) {
+        alert("Vegetale!");} else {
+        alert("user!")}
+   }   
 }) 
-
-
-
-
-
 
 
 const boxRowElement = document.querySelector(".row")
@@ -176,3 +177,5 @@ for (let i = 0; i < icons.length; i++) {
 
     boxRowElement.insertAdjacentHTML("beforeend", boxMarkup)
 }
+
+const animalCard = icons.filter((filteredType) => filteredType.type === "animal")
