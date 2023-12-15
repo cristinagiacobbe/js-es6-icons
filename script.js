@@ -146,12 +146,25 @@ iconsType.forEach((typology) => {
 selIcons.addEventListener("change", function() {
   console.log(selIcons.value);
    if (selIcons.value === iconsType[0]) {
-   alert("Animale!");} else {
+   //Prima operazione: filtrare l'array di oggetti "icons" per estrarre
+   //solo quelli con "type=animal"
+   //Seconda operazione: dal nuovo array filtrato usare i valori per costruire
+   //il template   
+   ;} 
+   else {
     if (selIcons.value === iconsType[1]) {
-        alert("Vegetale!");} else {
-        alert("user!")}
+    //filtrare icons per "type=vegetable"
+    //creare template con i valori filtrati        
+        ;}  else {
+    //filtrare icons per "type=user"
+    //creare template con i valori filtrati}
    }   
+}
 }) 
+
+//e se creassi una funzione "filtro"
+//e una funzione "template"
+//per non ripetere tutto ogni volta?
 
 
 const boxRowElement = document.querySelector(".row")
