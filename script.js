@@ -137,14 +137,16 @@ console.log(iconsType[0])       //animal
 console.log(iconsType[1])       //vegetable
 console.log(iconsType[2]) */    //user
 
-document.getElementById("type1").innerHTML= iconsType[0]
-document.getElementById("type2").innerHTML= iconsType[1]
-document.getElementById("type3").innerHTML= iconsType[2]
+const selIcons = document.getElementById("Icons")
+iconsType.forEach((typology) => {
+    let newOption = new Option(typology, typology);
+  Icons.append(newOption);
+})
 
-/* const selIcons = document.getElementById("type1")
 selIcons.addEventListener("change", function() {
-   alert("Attenzione!") 
-})  */
+   console.log(selIcons.value);
+}) 
+
 
 
 
