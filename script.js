@@ -11,135 +11,160 @@
 //Come possiamo usare i dati presenti nella nostra struttura dati per creare l'elemento html nel modo corretto e visualizzare l'icona in pagina?
 //Inizialmente può essere sufficiente stampare dei semplici div, senza alcuno stile, con all'interno l'icona e uno span con il nome.
 
+
 const icons = [
-	{
-		name: 'cat',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'crow',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'dog',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'dove',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'dragon',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'horse',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'hippo',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'fish',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'carrot',
-		prefix: 'fa-',
-		type: 'vegetable',
-		family: 'fas',
-		color: 'green'
-	},
-	{
-		name: 'apple-alt',
-		prefix: 'fa-',
-		type: 'vegetable',
-		family: 'fas',
-		color: 'green'
-	},
-	{
-		name: 'lemon',
-		prefix: 'fa-',
-		type: 'vegetable',
-		family: 'fas',
-		color: 'green'
-	},
-	{
-		name: 'pepper-hot',
-		prefix: 'fa-',
-		type: 'vegetable',
-		family: 'fas',
-		color: 'green'
-	},
-	{
-		name: 'user-astronaut',
-		prefix: 'fa-',
-		type: 'user',
-		family: 'fas',
-		color: 'blue'
-	},
-	{
-		name: 'user-graduate',
-		prefix: 'fa-',
-		type: 'user',
-		family: 'fas',
-		color: 'blue'
-	},
-	{
-		name: 'user-ninja',
-		prefix: 'fa-',
-		type: 'user',
-		family: 'fas',
-		color: 'blue'
-	},
-	{
-		name: 'user-secret',
-		prefix: 'fa-',
-		type: 'user',
-		family: 'fas',
-		color: 'blue'
-	}
+    {
+        name: 'cat',
+        prefix: 'fa-',
+        type: 'animal',
+        family: 'fas',
+        color: 'orange'
+    },
+    {
+        name: 'crow',
+        prefix: 'fa-',
+        type: 'animal',
+        family: 'fas',
+        color: 'orange'
+    },
+    {
+        name: 'dog',
+        prefix: 'fa-',
+        type: 'animal',
+        family: 'fas',
+        color: 'orange'
+    },
+    {
+        name: 'dove',
+        prefix: 'fa-',
+        type: 'animal',
+        family: 'fas',
+        color: 'orange'
+    },
+    {
+        name: 'dragon',
+        prefix: 'fa-',
+        type: 'animal',
+        family: 'fas',
+        color: 'orange'
+    },
+    {
+        name: 'horse',
+        prefix: 'fa-',
+        type: 'animal',
+        family: 'fas',
+        color: 'orange'
+    },
+    {
+        name: 'hippo',
+        prefix: 'fa-',
+        type: 'animal',
+        family: 'fas',
+        color: 'orange'
+    },
+    {
+        name: 'fish',
+        prefix: 'fa-',
+        type: 'animal',
+        family: 'fas',
+        color: 'orange'
+    },
+    {
+        name: 'carrot',
+        prefix: 'fa-',
+        type: 'vegetable',
+        family: 'fas',
+        color: 'green'
+    },
+    {
+        name: 'apple-alt',
+        prefix: 'fa-',
+        type: 'vegetable',
+        family: 'fas',
+        color: 'green'
+    },
+    {
+        name: 'lemon',
+        prefix: 'fa-',
+        type: 'vegetable',
+        family: 'fas',
+        color: 'green'
+    },
+    {
+        name: 'pepper-hot',
+        prefix: 'fa-',
+        type: 'vegetable',
+        family: 'fas',
+        color: 'green'
+    },
+    {
+        name: 'user-astronaut',
+        prefix: 'fa-',
+        type: 'user',
+        family: 'fas',
+        color: 'blue'
+    },
+    {
+        name: 'user-graduate',
+        prefix: 'fa-',
+        type: 'user',
+        family: 'fas',
+        color: 'blue'
+    },
+    {
+        name: 'user-ninja',
+        prefix: 'fa-',
+        type: 'user',
+        family: 'fas',
+        color: 'blue'
+    },
+    {
+        name: 'user-secret',
+        prefix: 'fa-',
+        type: 'user',
+        family: 'fas',
+        color: 'blue'
+    }
 ]
+const iconsType = []
+icons.forEach((icon) => {
+if (!iconsType.includes(icon.type)) {
+iconsType.push(icon.type)
+}
+})
+/* console.log(iconsType)
+console.log(iconsType[0])       //animal
+console.log(iconsType[1])       //vegetable
+console.log(iconsType[2]) */    //user
+
+document.getElementById("type1").innerHTML= iconsType[0]
+document.getElementById("type2").innerHTML= iconsType[1]
+document.getElementById("type3").innerHTML= iconsType[2]
+
+/* const selIcons = document.getElementById("type1")
+selIcons.addEventListener("change", function() {
+   alert("Attenzione!") 
+})  */
+
+
+
+
+
 
 const boxRowElement = document.querySelector(".row")
 
 for (let i = 0; i < icons.length; i++) {
-    	const box = icons[i];	
-    
-    	const iconName = box.name
-    	const iconPrefix = box.prefix
-    	const iconColor = box.color
-        console.log(iconColor);
-	
-	const boxMarkup = `
+    const box = icons[i];
+
+    const iconName = box.name
+    const iconPrefix = box.prefix
+    const iconColor = box.color
+    console.log(iconColor);
+
+    const boxMarkup = `
 		<div class="col">
       			<div class="card">
-        			<i id="tagIcon" class="${iconPrefix}solid ${iconPrefix}${iconName} my-1 m-auto" style="color: ${iconColor}"></i>
+        			<i class="${iconPrefix}solid ${iconPrefix}${iconName} my-1 m-auto" style="color: ${iconColor}"></i>
         			<div class="card-body">
           				<h6 class="card-title text-center">${iconName}</h6>
                     </div>          			
@@ -147,6 +172,5 @@ for (let i = 0; i < icons.length; i++) {
     	</div> 
 `
 
-boxRowElement.insertAdjacentHTML("beforeend", boxMarkup)
-//document.getElementById("tagIcon").style.color = (iconColor)
+    boxRowElement.insertAdjacentHTML("beforeend", boxMarkup)
 }
