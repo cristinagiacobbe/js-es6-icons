@@ -128,9 +128,9 @@ const icons = [
 ]
 const iconsType = []
 icons.forEach((icon) => {
-if (!iconsType.includes(icon.type)) {
-iconsType.push(icon.type)
-}
+    if (!iconsType.includes(icon.type)) {
+        iconsType.push(icon.type)
+    }
 })
 /* console.log(iconsType)
 console.log(iconsType[0])       //animal
@@ -140,44 +140,52 @@ console.log(iconsType[2]) */    //user
 const selIcons = document.getElementById("Icons")
 iconsType.forEach((typology) => {
     let newOption = new Option(typology, typology);
-  Icons.append(newOption);
+    Icons.append(newOption);
 })
 
-selIcons.addEventListener("change", function() {
-  console.log(selIcons.value);
-   if (selIcons.value === iconsType[0]) {
-   //Prima operazione: filtrare l'array di oggetti "icons" per estrarre
-   //solo quelli con "type=animal"
-   //Seconda operazione: dal nuovo array filtrato usare i valori per costruire
-   //il template   
-   ;} 
-   else {
-    if (selIcons.value === iconsType[1]) {
-    //filtrare icons per "type=vegetable"
-    //creare template con i valori filtrati        
-        ;}  else {
-    //filtrare icons per "type=user"
-    //creare template con i valori filtrati}
-   }   
+
+selIcons.addEventListener("change", function (e) {
+    //e.
+    //console.log(selIcons.value);
+    if (selIcons.value === iconsType[0]) {
+        
+        //Prima operazione: filtrare l'array di oggetti "icons" per estrarre
+        //solo quelli con "type=animal"
+        const animalCard = icons.filter((filteredType) => filteredType.type === iconsType[0]);
+        //console.log(animalCard);
+        //Seconda operazione: dal nuovo array filtrato usare i valori per costruire
+        //il template          
+        template(animalCard);
+        
+    } else if (selIcons.value === iconsType[1]) {
+        //filtrare icons per "type=vegetable"
+        const vegetableCard = icons.filter((filteredType) => filteredType.type === iconsType[1]);
+        //creare template con i valori filtrati       
+        template(vegetableCard);
+    } else {
+        //filtrare icons per "type=user"
+        const userCard = icons.filter((filteredType) => filteredType.type === iconsType[2]);
+        //creare template con i valori filtrati
+        template(userCard);
+    }
 }
-}) 
-
-//e se creassi una funzione "filtro"
-//e una funzione "template"
-//per non ripetere tutto ogni volta?
+)
 
 
-const boxRowElement = document.querySelector(".row")
 
-for (let i = 0; i < icons.length; i++) {
-    const box = icons[i];
 
-    const iconName = box.name
-    const iconPrefix = box.prefix
-    const iconColor = box.color
-    console.log(iconColor);
+function template(filteredCard) {
+    const boxRowElement = document.querySelector(".row")
 
-    const boxMarkup = `
+    for (let i = 0; i < filteredCard.length; i++) {
+        const box = filteredCard[i];
+
+        const iconName = box.name
+        const iconPrefix = box.prefix
+        const iconColor = box.color
+        //console.log(iconColor);
+
+        const boxMarkup = `
 		<div class="col">
       			<div class="card">
         			<i class="${iconPrefix}solid ${iconPrefix}${iconName} my-1 m-auto" style="color: ${iconColor}"></i>
@@ -188,7 +196,8 @@ for (let i = 0; i < icons.length; i++) {
     	</div> 
 `
 
-    boxRowElement.insertAdjacentHTML("beforeend", boxMarkup)
+        boxRowElement.insertAdjacentHTML("beforeend", boxMarkup)
+    }
 }
 
-const animalCard = icons.filter((filteredType) => filteredType.type === "animal")
+
