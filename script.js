@@ -126,6 +126,8 @@ const icons = [
         color: 'blue'
     }
 ]
+template(icons)
+
 const iconsType = []
 icons.forEach((icon) => {
     if (!iconsType.includes(icon.type)) {
@@ -161,17 +163,16 @@ selIcons.addEventListener("change", function () {
         const vegetableCard = icons.filter((filteredType) => filteredType.type === iconsType[1]);
         //creare template con i valori filtrati       
         template(vegetableCard);
-    } else {
+    } else if (selIcons.value === iconsType[2]) {
         //filtrare icons per "type=user"
         const userCard = icons.filter((filteredType) => filteredType.type === iconsType[2]);
         //creare template con i valori filtrati
         template(userCard);
+    } else {
+        template(icons);
     }
 }
 )
-
-
-
 
 function template(filteredCard) {
     const boxRowElement = document.querySelector(".row")
