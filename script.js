@@ -11,7 +11,6 @@
 //Come possiamo usare i dati presenti nella nostra struttura dati per creare l'elemento html nel modo corretto e visualizzare l'icona in pagina?
 //Inizialmente può essere sufficiente stampare dei semplici div, senza alcuno stile, con all'interno l'icona e uno span con il nome.
 
-
 const icons = [
     {
         name: 'cat',
@@ -126,6 +125,19 @@ const icons = [
         color: 'blue'
     }
 ]
+
+icons.forEach((icon) => {
+    delete icon.color; 
+    const randomBox = "abcdef0123456789";
+    
+    let randomColor = "#"
+    for (let i = 0; i < 6; i++) {
+      randomColor += randomBox[Math.floor(Math.random()* randomBox.length)]; 
+    }
+    icon["color"] = randomColor;
+})
+console.log(icons);
+
 template(icons)
 
 const iconsType = []
