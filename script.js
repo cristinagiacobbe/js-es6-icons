@@ -144,8 +144,7 @@ iconsType.forEach((typology) => {
 })
 
 
-selIcons.addEventListener("change", function (e) {
-    //e.
+selIcons.addEventListener("change", function () {
     //console.log(selIcons.value);
     if (selIcons.value === iconsType[0]) {
         
@@ -176,7 +175,7 @@ selIcons.addEventListener("change", function (e) {
 
 function template(filteredCard) {
     const boxRowElement = document.querySelector(".row")
-
+    boxRowElement.innerHTML= ""
     for (let i = 0; i < filteredCard.length; i++) {
         const box = filteredCard[i];
 
